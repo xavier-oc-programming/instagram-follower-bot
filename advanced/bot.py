@@ -116,7 +116,16 @@ class InstaBot:
             pass
 
     def _find_scrollbox(self, dialog_el):
-        """Locate the scrollable list container inside a dialog."""
+        """Locate the scrollable list container inside a dialog.
+
+        The dialog_el argument may be stale by the time this runs (Instagram
+        re-renders the modal DOM after opening). The CSS path never uses it.
+        The JS fallback re-finds the dialog fresh rather than relying on it.
+        """
+        # Give the modal animation time to finish rendering
+        time.sleep(1.0)
+
+        # Primary: CSS selector — does not use dialog_el, so staleness is irrelevant
         try:
             box = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located(
@@ -127,7 +136,7 @@ class InstaBot:
         except TimeoutException:
             pass
 
-        # JS fallback — find any descendant with actual scroll content
+        # JS fallback — re-find the dialog fresh to avoid stale reference
         js = """
         const root = arguments[0];
         const all = root.querySelectorAll('*');
@@ -141,8 +150,11 @@ class InstaBot:
         }
         return null;
         """
-        box = self.driver.execute_script(js, dialog_el)
-        return box  # None if not found
+        try:
+            fresh_dialog = self.driver.find_element(By.XPATH, config.XPATH_DIALOG)
+            return self.driver.execute_script(js, fresh_dialog)
+        except Exception:
+            return None
 
     def _scroll_modal(self, scroll_box, scroll_cycles: int, pause: float,
                       count_fn) -> None:
