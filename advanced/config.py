@@ -45,7 +45,7 @@ MODAL_SETTLE = 0.3             # seconds to wait after opening a modal
 # XPaths — login / session detection
 # ============================================================
 XPATH_ACCEPT_COOKIES = (
-    "//button[contains(text(), 'Allow all cookies') or contains(text(), 'Accept')]"
+    "//button[contains(., 'Allow all cookies') or contains(., 'Accept')]"
 )
 XPATH_SAVE_INFO = "//button[contains(normalize-space(.), 'Save info')]"
 XPATH_OK_MESSAGING = (

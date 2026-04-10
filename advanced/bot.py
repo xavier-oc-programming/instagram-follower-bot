@@ -54,6 +54,8 @@ class InstaBot:
         options.add_experimental_option("prefs", {
             "profile.default_content_setting_values.notifications": 2,
             "profile.default_content_setting_values.geolocation": 1,
+            "credentials_enable_service": False,
+            "profile.password_manager_enabled": False,
         })
 
         profile_path = str(Path(__file__).parent / "chrome_profile")
