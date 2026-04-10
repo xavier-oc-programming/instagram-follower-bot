@@ -1,0 +1,8 @@
+# Python 3.10+ required (uses X | Y union type hints)
+selenium
+undetected-chromedriver
+python-dotenv
+
+# Note: undetected-chromedriver manages ChromeDriver automatically.
+# No manual chromedriver install needed (e.g. via Homebrew).
+# Update CHROME_VERSION in advanced/config.py when Chrome auto-updates.
