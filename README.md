@@ -83,9 +83,14 @@ python menu.py
 ```
 
 ```
-  _____                _                           ____        _
- |_   _|              | |                         |  _ \      | |
-   ...                              Day 52 — Instagram Follower Bot
+.___                 __                                        ___.           __   
+|   | ____   _______/  |______     ________________    _____   \_ |__   _____/  |_ 
+|   |/    \ /  ___/\   __\__  \   / ___\_  __ \__  \  /     \   | __ \ /  _ \   __\
+|   |   |  \\___ \  |  |  / __ \_/ /_/  >  | \// __ \|  Y Y  \  | \_\ (  <_> )  |  
+|___|___|  /____  > |__| (____  /\___  /|__|  (____  /__|_|  /  |___  /\____/|__|  
+         \/     \/            \//_____/            \/      \/       \/             
+
+              Day 52 — Instagram Follower Bot
 
   [1] Original  — course script (follow flow)
   [2] Advanced  — refactored bot with follow + unfollow modes
