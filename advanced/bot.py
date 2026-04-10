@@ -58,7 +58,7 @@ class InstaBot:
 
         profile_path = str(Path(__file__).parent / "chrome_profile")
         os.makedirs(profile_path, exist_ok=True)
-        options.add_argument(f"user-data-dir={profile_path}")
+        options.add_argument(f"--user-data-dir={profile_path}")
 
         self.driver = uc.Chrome(options=options, version_main=config.CHROME_VERSION)
         self.wait = WebDriverWait(self.driver, config.WAIT_TIMEOUT)
