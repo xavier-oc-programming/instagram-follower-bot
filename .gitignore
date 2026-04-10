@@ -1,0 +1,12 @@
+**/__pycache__/
+.DS_Store
+.idea/
+.vscode/
+*.py[cod]
+.env
+*.log
+old_files/
+
+# Chrome profile — contains session cookies and login state
+chrome_profile/
+advanced/chrome_profile/
